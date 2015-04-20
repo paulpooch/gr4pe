@@ -23,7 +23,8 @@ func main() {
 
 	router := NewRouter()
 
-	//Database = SetupDB()
+	database := SetupDB()
+	_ = database
 
 	http.Handle("/", router)
 

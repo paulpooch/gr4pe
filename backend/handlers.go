@@ -8,7 +8,7 @@ import (
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	log.Printf(
-		"%s\t%s\t%s\t%s",
+		"%s\t%s\t%s",
 		r.Method,
 		r.RequestURI,
 		time.Since(time.Now()),
