@@ -16,8 +16,9 @@ var {
 } = React;
 
 var styles = StyleSheet.create({
-  a: {
-    flex: 1
+  container: {
+    flex: 1,
+    flexDirection: 'row'
   }
 });
 
@@ -25,7 +26,7 @@ var mobile = React.createClass({
   render: function() {
     return (
         <NavigatorIOS
-        style={ styles.a }
+        style={ styles.container }
         initialRoute={{
           title: 'Login',
           component: Login

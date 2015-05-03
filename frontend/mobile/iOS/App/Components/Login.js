@@ -1,36 +1,70 @@
 var React = require('react-native');
 
 var {
-  View,
-  Text,
+        ActivityIndicatorIOS,
+        View,
+        StyleSheet,
+        Text,
         TextInput,
-  StyleSheet
+        TouchableHighlight
 } = React;
+
+var BLUE = '#09f';
+var WHITE = '#fff';
 
 var styles = StyleSheet.create({
   table: {
     flex: 1,
+    margin: 20,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'stretch'
   },
   row: {
 
   },
   input: {
     height: 40,
-    width: 200,
-    borderColor: 'gray',
+    borderColor: BLUE,
     borderWidth: 1
+  },
+  loginButton: {
+    backgroundColor: BLUE,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 10,
+    height: 40,
+    borderRadius: 5,
+    borderWidth: 1,
+    alignItems: 'center',
+    borderColor: WHITE
   }
 });
 
 class Login extends React.Component {
 
-  getInitialState() {
-    return {
-      input: ''
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: false,
+      inputEmail: '',
+      inputPassword: '',
+      isLoadingBoolean: false
     };
+  }
+
+  handleChange(field, e) {
+    var state = {};
+    var text = e.nativeEvent.text;
+    console.log(text, field);
+    state[field] = text;
+    this.setState(state);
+  }
+
+  handleSubmit(e) {
+    this.setState({
+      isLoading: true
+    });
   }
 
   render() {
@@ -40,26 +74,29 @@ class Login extends React.Component {
         <Text>Please Login</Text>
 
         <View style={ styles.row }>
-          <Text>Username:</Text>
+          <Text>Email:</Text>
           <TextInput style={ styles.input }
-          onChangeText={(text) =>
-            this.setState({ inputUsername: text })
-          }
-          keyboardType="email-address"
-          />
+                     value={ this.state.inputEmail }
+                     onChange={ this.handleChange.bind(this, 'inputEmail') }
+                     keyboardType="email-address"
+                     placeholder="Email" />
         </View>
 
         <View style={ styles.row }>
           <Text>Password:</Text>
           <TextInput style={ styles.input }
-          onChangeText={(text) =>
-            this.setState({ inputPassword: text })
-          }
-          keyboardType="defaut"
-          password="true"
-          />
+                     value={ this.state.inputPassword }
+                     onChange={ this.handleChange.bind(this, 'inputPassword') }
+                     keyboardType="default"
+                     password={ true }
+                     placeholder="Password"
+                     />
         </View>
 
+        <TouchableHighlight style={ styles.loginButton }
+                            onPress={ this.handleSubmit.bind(this) }>
+          <Text style={{ color: WHITE }}>Login</Text>
+        </TouchableHighlight>
       </View>
 
     );
