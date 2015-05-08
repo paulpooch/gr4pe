@@ -1,4 +1,5 @@
 var React = require('react-native');
+var api = require('../Utils/api');
 
 var {
         ActivityIndicatorIOS,
@@ -64,6 +65,13 @@ class Login extends React.Component {
   handleSubmit(e) {
     this.setState({
       isLoading: true
+    });
+    var options = {
+      inputEmail:     this.state.inputEmail,
+      inputPassword:  this.state.inputPassword
+    };
+    api.submitLogin(options).then((json) => {
+      console.log(json);
     });
   }
 

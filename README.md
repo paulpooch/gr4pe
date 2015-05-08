@@ -1,6 +1,10 @@
 # gr4pe
 A fullstack framework for web &amp; mobile apps.  Go, REST, React, React-Native, Realm, &amp; PostgreSQL.
 
+# Autobuilding Server
+
+Install rerun from https://github.com/skelterjohn/rerun
+`rerun --build github.com/paulpooch/gr4pe/backend`
 
 # PostgreSQL
 
