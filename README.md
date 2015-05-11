@@ -26,7 +26,7 @@ http://stackoverflow.com/questions/14510237/postgressql-with-homebrew-on-mac
 ## PG console
 `psql -d gr4pe`
 
-## Tables.
+## Tables
 ```sql
 
 CREATE TABLE public.accounts
@@ -39,8 +39,6 @@ CREATE TABLE public.accounts
     is_logged_in BOOLEAN DEFAULT FALSE  NOT NULL,
     email VARCHAR NOT NULL
 );
-ALTER TABLE public.accounts
- ADD CONSTRAINT unique_id UNIQUE (id);
 ALTER TABLE public.accounts
  ADD CONSTRAINT unique_username UNIQUE (username);
 
