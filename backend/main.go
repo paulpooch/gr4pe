@@ -24,7 +24,7 @@ func main() {
 	router := NewRouter()
 
 	database := SetupDB()
-	_ = database
+	AccountRegister(database)
 
 	http.Handle("/", router)
 
