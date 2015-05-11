@@ -25,3 +25,6 @@ _testmain.go
 
 # Webstorm
 .idea
+
+# Executables
+backend/backend

@@ -1,11 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
 var React = require('react-native');
-var Login = require('./iOS/App/Components/Login');
+
+var C = require('./iOS/App/c');
+var LoginOrRegister = require('./iOS/App/Components/LoginOrRegister');
 
 var {
   AppRegistry,
@@ -28,8 +26,8 @@ var mobile = React.createClass({
         <NavigatorIOS
         style={ styles.container }
         initialRoute={{
-          title: 'Login',
-          component: Login
+          title: `Welcome to ${ C.AppName }`,
+          component: LoginOrRegister
         }} />
     );
   }
